@@ -1,15 +1,29 @@
 
+//var bnd = document.querySelectorAll(".boundary");
 window.onload = function(){
 
-   document.getElementById("boundary1").innerHTML="helo";
-   go();
    
+   var yo= document.getElementById("boundary1");
+   go(yo);
+   goAll();
 
 }
-function go(){
-    document.getElementById("boundary1").addEventListener("mouseover",change);
+
+
+function go(g){
+    g.addEventListener("mouseover",change);
     function change(){
-        document.getElementById("boundary1").className="boundary youlose";
+        var bnd = document.querySelectorAll(".boundary");
+        for(var i in bnd){
+       bnd[i].className="boundary youlose";
+    }
+        
     }
 
+}
+function goAll(){
+     var bnd = document.querySelectorAll(".boundary");
+    for(var i in bnd){
+       go(bnd[i])
+    }
 }
