@@ -1,4 +1,4 @@
-//var bnd = document.querySelectorAll(".boundary");
+var bnd = document.querySelectorAll(".boundary");
 
 var lost = "false";
 window.onload = function(){
@@ -10,7 +10,7 @@ window.onload = function(){
   
   
    goAll();
-    
+   start(); 
   
    ended(lost);
   // console.log(lost);
@@ -58,3 +58,15 @@ function ended(l){
     }
 };
 };
+function start(){
+    document.getElementById("start").addEventListener("click",reset);
+    function reset(){
+         var bnd = document.querySelectorAll(".boundary");
+         for(var i = 0; i < bnd.length-1; i++){
+            bnd[i].className="boundary";
+           
+         }
+         document.getElementById("status").innerHTML = 'Move your mouse over the "S" to begin.'
+          }
+    
+}
