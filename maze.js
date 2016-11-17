@@ -11,9 +11,11 @@ window.onload = function(){
   
    goAll();
    start(); 
-  
+   
+   cheat();
+   begin();
    ended(lost);
-  // console.log(lost);
+ 
 
 }
 
@@ -60,6 +62,7 @@ function ended(l){
 };
 function start(){
     document.getElementById("start").addEventListener("click",reset);
+
     function reset(){
          var bnd = document.querySelectorAll(".boundary");
          for(var i = 0; i < bnd.length-1; i++){
@@ -69,4 +72,26 @@ function start(){
          document.getElementById("status").innerHTML = 'Move your mouse over the "S" to begin.'
           }
     
+}
+function begin(){
+    document.getElementById("start").addEventListener("mouseout",beginG);
+    function beginG(){
+        document.getElementById("status").innerHTML = 'Game has begun'
+    }
+
+}
+function cheat(){
+     document.getElementById("maze").addEventListener("mouseout",getX);
+     function getX(event){
+         var x = event.clientX
+         if(x<83){
+             document.getElementById("status").innerHTML = "cheater, you lose";
+             
+             var bnd = document.querySelectorAll(".boundary");
+        for(var i = 0; i < bnd.length-1; i++){
+       bnd[i].className="boundary youlose";
+       console.log (x);
+         }
+     }
+}
 }
